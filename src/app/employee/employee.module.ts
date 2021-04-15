@@ -6,10 +6,15 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { EmployeeComponent } from './employee.component';
 import { AlertComponent } from './alert/alert.component';
 import { ModalComponent } from './modal/modal.component';
-import { ClickOutsideDirective } from './click-outside.directive';
 
 @NgModule({
-  declarations: [EmployeeComponent, NavbarComponent, EmployeeListComponent, AlertComponent, ModalComponent, ClickOutsideDirective],
+  declarations: [
+    EmployeeComponent,
+    NavbarComponent,
+    EmployeeListComponent,
+    AlertComponent,
+    ModalComponent,
+  ],
   imports: [CommonModule],
   providers: [EmployeeService],
   exports: [EmployeeComponent],
