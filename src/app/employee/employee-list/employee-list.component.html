@@ -82,20 +82,15 @@
         </div>
       </div>
     </div>
-    <div
+    <app-alert
       *ngIf="employees.length === 0 && errorMessage.length === 0"
-      class="alert alert-info"
-      role="alert"
+      [type]="'alert-info'"
     >
       <h3>NO EMPLOYEES!</h3>
       <p>No Employees were found.</p>
-    </div>
-    <div
-      *ngIf="errorMessage.length !== 0"
-      class="alert alert-danger"
-      role="alert"
-    >
+    </app-alert>
+    <app-alert *ngIf="errorMessage.length !== 0" [type]="'alert-danger'">
       {{ errorMessage }}
-    </div>
+    </app-alert>
   </div>
 </div>
