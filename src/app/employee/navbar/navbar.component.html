@@ -28,8 +28,9 @@
         id="searchName"
         placeholder="Search employees..."
         aria-label="Search"
+        #search
+        (keydown.enter)="$event.preventDefault(); onKeyDown(search.value)"
       />
     </form>
   </div>
 </nav>
-<!--<app-employee-form title="Add Employee" #modal></app-employee-form>-->

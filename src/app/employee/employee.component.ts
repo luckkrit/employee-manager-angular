@@ -63,4 +63,14 @@ export class EmployeeComponent implements OnInit {
     this.employeeId = $event;
     this.employeeNotificationComponent.showModal();
   }
+
+  onSearchEmployee($event: string): void {
+    if ($event.length > 0) {
+      this.employees = this.employees.filter((employee) =>
+        employee.name.includes($event)
+      );
+    } else {
+      this.getEmployees();
+    }
+  }
 }

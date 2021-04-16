@@ -1,4 +1,4 @@
-<app-navbar (OnAddEmployee)="onAddEmployee()"></app-navbar>
+<app-navbar (OnAddEmployee)="onAddEmployee()" (OnSearchEmployee)="onSearchEmployee($event)"></app-navbar>
 <app-employee-list
   (OnEditEmployee)="onEditEmployee($event)"
   (OnDeleteEmployee)="onDeleteEmployee($event)"

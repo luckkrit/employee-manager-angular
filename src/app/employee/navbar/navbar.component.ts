@@ -16,9 +16,8 @@ import { EmployeeFormComponent } from '../employee-form/employee-form.component'
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class NavbarComponent implements OnInit {
-  // @ViewChild('modal')
-  // @Input()
-  // employeeFormComponent: EmployeeFormComponent;
+  @Output()
+  OnSearchEmployee: EventEmitter<string> = new EventEmitter<string>();
 
   @Output()
   OnAddEmployee: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -28,7 +27,10 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {}
 
   showModal(): void {
-    // this.employeeFormComponent.showModal();
     this.OnAddEmployee.emit(true);
+  }
+
+  onKeyDown(name: string): void {
+    this.OnSearchEmployee.emit(name);
   }
 }
