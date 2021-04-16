@@ -12,6 +12,7 @@ import { EmployeeNotificationComponent } from './employee-notification/employee-
 })
 export class EmployeeComponent implements OnInit {
   employees: Employee[] = [];
+  tempEmployees: Employee[] = [];
   @ViewChild('modal')
   employeeFormComponent: EmployeeFormComponent;
   @ViewChild('notification')
@@ -35,7 +36,10 @@ export class EmployeeComponent implements OnInit {
   }
   getEmployees(): void {
     this.employeeService.getEmployees().subscribe(
-      (employees) => (this.employees = employees),
+      (employees) => {
+        this.employees = employees;
+        this.tempEmployees = employees;
+      },
       (error) => (this.errorMessage = error)
     );
   }
@@ -64,13 +68,13 @@ export class EmployeeComponent implements OnInit {
     this.employeeNotificationComponent.showModal();
   }
 
+  searchEmployee(name: string): Employee[] {
+    return this.tempEmployees.filter((employee) =>
+      employee.name.toLowerCase().includes(name.toLowerCase())
+    );
+  }
+
   onSearchEmployee($event: string): void {
-    if ($event.length > 0) {
-      this.employees = this.employees.filter((employee) =>
-        employee.name.includes($event)
-      );
-    } else {
-      this.getEmployees();
-    }
+    this.employees = this.searchEmployee($event);
   }
 }
