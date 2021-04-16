@@ -1,15 +1,16 @@
+/***
+ * Use template from this URL: https://www.bootdey.com/snippets/view/bs4-contact-cards#html
+ */
 import {
   AfterViewInit,
   Component,
   ElementRef,
   EventEmitter,
-  Input,
   OnInit,
   Output,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { EmployeeFormComponent } from '../employee-form/employee-form.component';
 import { fromEvent, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged, pluck } from 'rxjs/operators';
 
