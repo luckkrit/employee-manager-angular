@@ -75,6 +75,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   onSearchEmployee($event: string): void {
+    console.log($event);
     this.employees = this.searchEmployee($event);
   }
 }

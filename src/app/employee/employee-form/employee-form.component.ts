@@ -59,6 +59,7 @@ export class EmployeeFormComponent implements OnInit {
       this.employee = this.employeeForm.value;
       this.OnAddEmployee.emit({ ...this.employee });
     }
+    this.employeeForm.reset();
     this.employee = null;
     this.modal.hideModal();
   }
