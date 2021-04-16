@@ -1,4 +1,13 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+  ViewEncapsulation,
+} from '@angular/core';
+import { EmployeeFormComponent } from '../employee-form/employee-form.component';
 
 @Component({
   selector: 'app-navbar',
@@ -7,18 +16,19 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class NavbarComponent implements OnInit {
-  isShow: boolean;
+  // @ViewChild('modal')
+  // @Input()
+  // employeeFormComponent: EmployeeFormComponent;
+
+  @Output()
+  OnAddEmployee: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() {}
 
   ngOnInit(): void {}
 
   showModal(): void {
-    this.isShow = true;
-    console.log('work');
-  }
-
-  onHideModal($event: boolean): void {
-    this.isShow = $event;
+    // this.employeeFormComponent.showModal();
+    this.OnAddEmployee.emit(true);
   }
 }

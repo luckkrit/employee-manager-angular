@@ -6,6 +6,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { EmployeeComponent } from './employee.component';
 import { AlertComponent } from './alert/alert.component';
 import { ModalComponent } from './modal/modal.component';
+import { EmployeeFormComponent } from './employee-form/employee-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { EmployeeNotificationComponent } from './employee-notification/employee-notification.component';
 
 @NgModule({
   declarations: [
@@ -14,8 +17,10 @@ import { ModalComponent } from './modal/modal.component';
     EmployeeListComponent,
     AlertComponent,
     ModalComponent,
+    EmployeeFormComponent,
+    EmployeeNotificationComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   providers: [EmployeeService],
   exports: [EmployeeComponent],
 })

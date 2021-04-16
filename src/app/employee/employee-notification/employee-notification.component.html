@@ -1,0 +1,15 @@
+<app-modal #modal>
+  <ng-container ngProjectAs="'[title]'">{{ title }}</ng-container>
+  <ng-container ngProjectAs="'[body]'">{{ message }}</ng-container>
+  <ng-container ngProjectAs="'[footer]'">
+    <button
+      type="button"
+      class="btn btn-light"
+      (click)="cancel()"
+      data-dismiss="modal"
+    >
+      No
+    </button>
+    <button type="button" class="btn btn-danger" (click)="ok()">Yes</button>
+  </ng-container>
+</app-modal>

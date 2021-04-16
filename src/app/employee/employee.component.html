@@ -1,2 +1,19 @@
-<app-navbar></app-navbar>
-<app-employee-list></app-employee-list>
+<app-navbar (OnAddEmployee)="onAddEmployee()"></app-navbar>
+<app-employee-list
+  (OnEditEmployee)="onEditEmployee($event)"
+  (OnDeleteEmployee)="onDeleteEmployee($event)"
+  [errorMessage]="errorMessage"
+  [employees]="employees"
+></app-employee-list>
+<app-employee-form
+  #modal
+  (OnAddEmployee)="addEmployee($event)"
+  (OnEditEmployee)="editEmployee($event)"
+></app-employee-form>
+<app-employee-notification
+  #notification
+  [title]="'Delete Employee'"
+  [message]="'Are you sure you want to delete employee?'"
+  (OnOK)="onOK()"
+>
+</app-employee-notification>

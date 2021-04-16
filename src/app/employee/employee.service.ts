@@ -35,6 +35,6 @@ export class EmployeeService {
   }
 
   public deleteEmployee(id: number): Observable<any> {
-    return this.http.delete(`${this.apiServiceUrl}/employee/${id}`);
+    return this.http.delete(`${this.apiServiceUrl}/employee/delete/${id}`);
   }
 }

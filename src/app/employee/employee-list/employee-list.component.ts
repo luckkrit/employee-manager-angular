@@ -1,4 +1,11 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewEncapsulation,
+} from '@angular/core';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -10,24 +17,23 @@ import { HttpErrorResponse } from '@angular/common/http';
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class EmployeeListComponent implements OnInit {
+  @Input()
   public employees: Employee[] = [];
+  @Input()
   public errorMessage = '';
-  constructor(private employeeService: EmployeeService) {}
+  @Output()
+  OnEditEmployee: EventEmitter<Employee> = new EventEmitter<Employee>();
+  @Output()
+  OnDeleteEmployee: EventEmitter<number> = new EventEmitter<number>();
+  constructor() {}
 
-  public getEmployees(): void {
-    this.employeeService.getEmployees().subscribe(
-      (employees: Employee[]) => {
-        this.employees = employees;
-        console.log(this.employees);
-      },
-      (error: HttpErrorResponse) => {
-        console.log(error.message);
-        this.errorMessage = error.message;
-      }
-    );
+  ngOnInit(): void {}
+
+  editEmployee(employee: Employee): void {
+    this.OnEditEmployee.emit(employee);
   }
 
-  ngOnInit(): void {
-    this.getEmployees();
+  deleteEmployee(employee: Employee): void {
+    this.OnDeleteEmployee.emit(employee.id);
   }
 }
