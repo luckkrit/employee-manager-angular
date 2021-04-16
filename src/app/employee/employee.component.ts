@@ -63,8 +63,9 @@ export class EmployeeComponent implements OnInit {
     this.employeeId = 0;
   }
 
-  onDeleteEmployee($event: number): void {
-    this.employeeId = $event;
+  onDeleteEmployee($event: Employee): void {
+    this.employeeId = $event.id;
+    this.employeeNotificationComponent.message = `Are you sure you want to delete employee ${$event.name}?`;
     this.employeeNotificationComponent.showModal();
   }
 
@@ -75,7 +76,6 @@ export class EmployeeComponent implements OnInit {
   }
 
   onSearchEmployee($event: string): void {
-    console.log($event);
     this.employees = this.searchEmployee($event);
   }
 }

@@ -24,7 +24,7 @@ export class EmployeeListComponent implements OnInit {
   @Output()
   OnEditEmployee: EventEmitter<Employee> = new EventEmitter<Employee>();
   @Output()
-  OnDeleteEmployee: EventEmitter<number> = new EventEmitter<number>();
+  OnDeleteEmployee: EventEmitter<Employee> = new EventEmitter<Employee>();
   constructor() {}
 
   ngOnInit(): void {}
@@ -34,6 +34,6 @@ export class EmployeeListComponent implements OnInit {
   }
 
   deleteEmployee(employee: Employee): void {
-    this.OnDeleteEmployee.emit(employee.id);
+    this.OnDeleteEmployee.emit(employee);
   }
 }
